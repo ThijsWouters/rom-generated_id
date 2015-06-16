@@ -1,8 +1,7 @@
-# Rom::GeneratedId
+# ROM::GeneratedId
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rom/generated_id`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a plugin for ROM. It generates an id if it is not present when
+creating a tuple.
 
 ## Installation
 
@@ -22,7 +21,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+ROM.setup(:memory)
+
+ROM.relation(:users)
+ROM.commands(:users) do
+  define(:create) do
+    use :generated_id
+  end
+end
+
+ROM.finalize
+
+ROM.env.command(:users).create.call({name: 'Test Testington'})
+user = ROM.env.relation(:users).first
+user[:id] # some uuid
+```
 
 ## Development
 
