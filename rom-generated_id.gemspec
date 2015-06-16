@@ -9,10 +9,6 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Thijs Wouters"]
   spec.email         = ["thijs@morewood.be"]
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com' to prevent pushes to rubygems.org, or delete to allow pushes to any server."
-  end
-
   spec.summary       = "This gem generates an id when creating a new tuple."
   spec.homepage      = "https://github.com/ThijsWouters/rom-generated_id"
   spec.license       = "MIT"
