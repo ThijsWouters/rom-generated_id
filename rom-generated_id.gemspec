@@ -5,7 +5,7 @@ require 'rom/generated_id/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rom-generated_id"
-  spec.version       = Rom::GeneratedId::VERSION
+  spec.version       = ROM::GeneratedId::VERSION
   spec.authors       = ["Thijs Wouters"]
   spec.email         = ["thijs@morewood.be"]
 
@@ -22,6 +22,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'rom', "~> 0.7"
+  spec.add_development_dependency "thread_safe"
+  spec.add_development_dependency "inflecto"
   spec.add_development_dependency "bundler", "~> 1.8"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest"

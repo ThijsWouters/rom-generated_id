@@ -1,7 +1,15 @@
 require "rom/generated_id/version"
+require 'rom'
 
-module Rom
+module ROM
   module GeneratedId
-    # Your code goes here...
+    def execute(tuple)
+      super({id: SecureRandom.uuid}.merge(tuple))
+    end
   end
 end
+
+ROM.plugins do
+  register :generated_id, ROM::GeneratedId, type: :command
+end
+
